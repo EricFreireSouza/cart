@@ -1,6 +1,6 @@
-# compra
+# Carrinho
 
-> compra livros
+> Compra de Livros
 
 ## Build Setup
 
