@@ -4,7 +4,8 @@
     	<p>Total de Livros: {{length}}</p>
 		<b-row class="product">
 			<b-card-group deck class="prodts">
-	    		<b-card tag="article" style="max-width: 20rem%;" class="mb-2" v-for="product in products" track-by="id">
+				<b-col md="4" v-for="product in products" track-by="id">
+	    		<b-card tag="article" style="max-width: 100%%;" class="mb-2">
 		          	<h2>{{product.name}}</h2>
 		          	<b-row>
 			          	<b-col>
@@ -15,6 +16,7 @@
 				    </b-row>
 				    <b-button @click='addToCart(product)' class='btn btn-success'>Adicionar ao carrinho</b-button>
 			  	</b-card>
+			  </b-col>
 		  	</b-card-group>
 
 	    	<!--table class="table is-striped">

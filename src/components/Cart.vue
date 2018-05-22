@@ -1,28 +1,28 @@
 <template>
   <div class="cart">
-    <h1 class="title">Carrinho de Compras</h1>
-    <p v-show="!products.length">
-    	<i>Your cart is empty!</i>
-    	<router-link to="/">Go shopping</router-link>
-    </p>
-    <table class="table is-striped" v-show="products.length">
-    	<thead>
-    		<tr>
-    			<th>Produto</th>
-          <th>Preço</th>
-    			<th>Quantidade</th>
-    			<th>Subtotal</th>
-    			<th>Remover</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    		<tr v-for="p in products">
+    <div v-show="products.length">
+      <h1 class="title">Carrinho de Compras</h1>
+      
+      <table class="table is-striped">
+      	<thead>
+      		<tr>
+      			<th>Produto</th>
+            <th>Preço</th>
+      			<th>Quantidade</th>
+      			<th>Subtotal</th>
+      			<th>Remover</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+      		<tr v-for="p in products">
         		<td>{{ p.name }}</td>
             <td>R$ {{ p.price }}</td>
         		<td>{{ p.quantity }}</td>
         		<td>R$ {{ subTotal }}</td>
         		<th><button @click='removeToCart(products)' class='btn btn-danger btn-sm'>X</button></th>
         	</tr>
+        </tbody>
+        <tfoot>
         	<tr>
         		<td><b>Total:</b></td>
         		<td></td>
@@ -30,8 +30,14 @@
         		<td><b>R$ {{ total }}</b></td>
         		<th><button v-show="products.length" class='btn btn-warning is-primary' @click='checkout'>Finalizar</button></th>
         	</tr>
-    	</tbody>
-    </table>
+        </tfoot>
+      </table>
+    </div>
+    
+    <div v-show="!products.length">
+      <h1 class="title">Carrinho vazio!</h1>
+      <p><router-link to="/"><em>Ir as compras</em></router-link></p>      
+    </div>
   </div>
 </template>
 
@@ -58,7 +64,7 @@ export default {
       'removeToCart'
     ]),
   	checkout(){
-  	  alert('Pay us $' + this.total)
+  	  alert('Valor total R$ ' + this.total)
   	}
   }
 }
