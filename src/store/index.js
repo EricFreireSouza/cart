@@ -37,48 +37,42 @@ const actions = {
 			id: product.id
 		})
 	},
-	removeToCart({ commit }, products){
+	removeToCart({ commit }, product){
 		commit(types.REMOVE_TO_CART, {
-			id: products.id
+			id: product.id
 		})
 	}
 }
 
 // mutations
 const mutations = {
+  [types.ADD_TO_CART] (state, { id }) {
+    const record = state.added.find(p => p.id === id)
 
-	[types.ADD_TO_CART] (state, { id }) {
-	    const record = state.added.find(p => p.id === id)
+    if (!record) {
+      state.added.push({
+        id,
+        quantity: 1
+      })
+    } else {
+      record.quantity++
+    }
+  },
 
-	    if (!record) {
-	      state.added.push({
-	        id,
-	        quantity: 1
-	      })
-	    } else {
-	      record.quantity++
-	    }
-	  },
+  [types.REMOVE_TO_CART] (state, { id }) {
+    const record = state.added.find(p => p.id === id)
 
-	  [types.ADD_TO_CART] (state, { id }) {
-	    const record = state.added.find(p => p.id === id)
-
-	    if (!record) {
-	      state.added.push({
-	        id,
-	        quantity: 1
-	      })
-	    } else {
-	      record.quantity++
-	    }
-	  }
+    if (!record) {
+      this.$delete(record);
+    }
+  }
 }
 
 // one store for entire application
 export default new Vuex.Store({
-	state,
-	strict: debug,
-	getters,
-	actions,
-	mutations
+  state,
+  strict: debug,
+  getters,
+  actions,
+  mutations
 })

@@ -8,9 +8,9 @@
     <table class="table is-striped" v-show="products.length">
     	<thead>
     		<tr>
-    			<th>Nome</th>
+    			<th>Produto</th>
+          <th>Preço</th>
     			<th>Quantidade</th>
-    			<th>Preço unitário</th>
     			<th>Subtotal</th>
     			<th>Remover</th>
     		</tr>
@@ -18,22 +18,20 @@
     	<tbody>
     		<tr v-for="p in products">
         		<td>{{ p.name }}</td>
+            <td>R$ {{ p.price }}</td>
         		<td>{{ p.quantity }}</td>
-        		<td>R$ {{ p.price }}</td>
         		<td>R$ {{ subTotal }}</td>
-        		<th><button @click='removeToCart(products)' class='button is-info'>X</button></th>
+        		<th><button @click='removeToCart(products)' class='btn btn-danger btn-sm'>X</button></th>
         	</tr>
         	<tr>
         		<td><b>Total:</b></td>
         		<td></td>
         		<td></td>
         		<td><b>R$ {{ total }}</b></td>
-        		<th></th>
+        		<th><button v-show="products.length" class='btn btn-warning is-primary' @click='checkout'>Finalizar</button></th>
         	</tr>
     	</tbody>
-
     </table>
-    <p><button v-show="products.length" class='button is-primary' @click='checkout'>Finalizar</button></p>
   </div>
 </template>
 

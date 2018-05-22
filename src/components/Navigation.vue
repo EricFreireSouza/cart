@@ -1,8 +1,8 @@
 <template>
-  <nav class="nav has-shadow" style='box-shadow: 0 1px 0 rgba(219,219,219,.3);'>
+  <nav class="nav has-shadow">
     <div class="nav-left">
       <router-link to="/" class="nav-item">
-        <img src="../assets/logo.png" alt="Bulma logo">
+        LOJA ONLINE
       </router-link>
     </div>
 
@@ -22,11 +22,11 @@
       <div class="nav-item is-tab" :class="{ 'active-bottom-border': $route.path === '/cart' }">
         <div class="field is-grouped">
           <span class="control">
-            <router-link to='/cart' class="button is-info">
-              <span class="icon">
+            <router-link to='/cart' class="btn btn-success navbar-btn">
+              <!--span class="icon">
                 <i class="fa fa-shopping-cart"></i>
-              </span>
-              <span>Carrinho ({{itemsInCart}})</span>
+              </span-->
+              <span>Carrinho <span class="qtd">{{itemsInCart}}</span></span>
             </router-link>
           </span>
         </div>
@@ -50,15 +50,30 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .nav {
+  background: #000;
   height: auto;
   margin-bottom: 2rem;
 }
-.nav-item img {
-    max-height: 3.5rem;
+.nav a {
+  color: #fff;
 }
-.active-bottom-border {
-  border-bottom: 3px solid #00d1b2;
-    color: #00d1b2;
-    padding-bottom: calc(.75rem - 8px);
+.nav-item a:not(.button).is-tab.is-active, a.nav-item:not(.button).is-tab.is-active {
+  border-bottom: 3px solid #ccc;
+  color: #ccc;
+}
+.control .btn, .control .btn:hover { 
+  color: #fff;
+}
+.qtd {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  color: #6c757d;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #fff;
+  border-radius: 10px;
+  line-height: 1;
 }
 </style>

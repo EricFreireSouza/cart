@@ -1,10 +1,10 @@
 <template>
-	<b-container>
+	<b-container fluid>
 		<h1 class="title">Todos os Livros</h1>
     	<p>Total de Livros: {{length}}</p>
 		<b-row class="product">
 			<b-card-group deck class="prodts">
-	    		<b-card tag="article" style="max-width: 100%;" class="mb-2" v-for="product in products" track-by="id">
+	    		<b-card tag="article" style="max-width: 20rem%;" class="mb-2" v-for="product in products" track-by="id">
 		          	<h2>{{product.name}}</h2>
 		          	<b-row>
 			          	<b-col>
@@ -13,7 +13,7 @@
 						    <span class="price">R$ {{product.price}}</span>
 					    </b-col>
 				    </b-row>
-				    <b-button @click='addToCart(product)' class='button is-info'>Adicionar ao carrinho</b-button>
+				    <b-button @click='addToCart(product)' class='btn btn-success'>Adicionar ao carrinho</b-button>
 			  	</b-card>
 		  	</b-card-group>
 
