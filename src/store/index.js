@@ -22,6 +22,7 @@ const getters = {
 			const product = state.all.find(p => p.id === id)
 
 			return {
+        id: product.id,
 				name: product.name,
 				price: product.price,
 				quantity
@@ -59,12 +60,10 @@ const mutations = {
     }
   },
 
-  [types.REMOVE_TO_CART] (state, { id }) {
+  [types.REMOVE_TO_CART] (state, {id}) {
     const record = state.added.find(p => p.id === id)
 
-    if (!record) {
-      this.$delete(record);
-    }
+    state.added.shift(record)
   }
 }
 

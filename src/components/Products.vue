@@ -4,8 +4,8 @@
     	<p>Total de Livros: {{length}}</p>
 		<b-row class="product">
 			<b-card-group deck class="prodts">
-				<b-col md="4" v-for="product in products" track-by="id">
-	    		<b-card tag="article" style="max-width: 100%%;" class="mb-2">
+			  <b-col md="4" v-for="product in products" track-by="id">
+	    		<b-card tag="article" style="max-width: 100%%;" class="mb-4">
 		          	<h2>{{product.name}}</h2>
 		          	<b-row>
 			          	<b-col>

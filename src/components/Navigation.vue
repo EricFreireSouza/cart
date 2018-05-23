@@ -50,7 +50,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .nav {
-  background: #000;
+  background: #080808;
   height: auto;
   margin-bottom: 2rem;
 }

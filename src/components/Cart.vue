@@ -18,8 +18,8 @@
         		<td>{{ p.name }}</td>
             <td>R$ {{ p.price }}</td>
         		<td>{{ p.quantity }}</td>
-        		<td>R$ {{ subTotal }}</td>
-        		<th><button @click='removeToCart(products)' class='btn btn-danger btn-sm'>X</button></th>
+        		<td>R$ {{ p.quantity * p.price }}</td>
+        		<th><button @click='removeToCart(p)' class='btn btn-danger btn-sm'>X</button></th>
         	</tr>
         </tbody>
         <tfoot>
@@ -52,11 +52,6 @@ export default {
       return this.products.reduce((total, p) => {
         return total + p.price * p.quantity
       }, 0)
-    },
-    subTotal () {
-    	return this.products.reduce((subTotal, p) => {
-          return subTotal = p.quantity * p.price
-      	}, 0)
     }
   },
   methods: {
