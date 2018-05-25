@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Navigation />
+    <Ccheader />
     <router-view/>
   </div>
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue'
+import Ccheader from './components/Ccheader.vue'
 
 export default {
   name: 'App',
   components: {
-    Navigation
+    Ccheader
   },
   data(){
     return{}

@@ -1,5 +1,7 @@
 <template>
-  <div class="cart">
+   <b-container fluid>
+    <b-row>
+      <b-col>
     <div v-show="products.length">
       <h1 class="title">Carrinho de Compras</h1>
       
@@ -19,7 +21,7 @@
             <td>R$ {{ p.price }}</td>
         		<td>{{ p.quantity }}</td>
         		<td>R$ {{ p.quantity * p.price }}</td>
-        		<th><button @click='removeToCart(p)' class='btn btn-danger btn-sm'>X</button></th>
+        		<th><button @click="removeToCart(p)" class="btn btn-danger btn-sm" title="Remover">X</button></th>
         	</tr>
         </tbody>
         <tfoot>
@@ -28,7 +30,7 @@
         		<td></td>
         		<td></td>
         		<td><b>R$ {{ total }}</b></td>
-        		<th><button v-show="products.length" class='btn btn-warning is-primary' @click='checkout'>Finalizar</button></th>
+        		<th><button v-show="products.length" class="btn btn-warning is-primary" @click="checkout">Finalizar</button></th>
         	</tr>
         </tfoot>
       </table>
@@ -38,7 +40,9 @@
       <h1 class="title">Carrinho vazio!</h1>
       <p><router-link to="/"><em>Ir as compras</em></router-link></p>      
     </div>
-  </div>
+     </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
